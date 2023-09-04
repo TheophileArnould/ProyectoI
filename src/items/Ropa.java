@@ -15,11 +15,15 @@ public abstract class Ropa {
     }
     private Image image;
 
-    public Ropa(double precio, char sexo, exitanteTallaje tallaje, exitanteColor color, Image image) {
+    public Ropa(double precio, char sexo, exitanteTallaje tallaje, exitanteColor color) {
         this.precio = precio;
         this.sexo = sexo;
         this.tallaje = tallaje;
         this.color = color;
+        this.image = image;
+    }
+    public Ropa(double precio, char sexo, exitanteTallaje tallaje, exitanteColor color, Image image) {
+        this(precio,sexo,tallaje,color);
         this.image = image;
     }
 
