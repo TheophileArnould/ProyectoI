@@ -2,8 +2,8 @@ import items.Camisa;
 import items.Camiseta;
 import items.Ropa;
 import items.Vestido;
-import items.Ropa.exitanteColor;
-import java.util.InputMismatchException;
+
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -35,7 +35,18 @@ public class App { // Create user interface
             switch (opcion) {
                 case 1:
                     System.out.println("Has seleccionado la opcion 1 camisa");
-                    System.out.println("Camisa: Precio: 56.0 Talla: M Color: RED ");
+                    System.out.println("Ingressa la talleja");
+
+                    for(Ropa.exitanteTallaje tallaje : Ropa.exitanteTallaje.values()){
+                        System.out.println(tallaje);
+                    }
+                    opcion = sn.nextInt();
+
+                    for (Ropa.exitanteColor color: Ropa.exitanteColor.values()) {
+                        System.out.println(color);
+                    }
+                    opcion = sn.nextInt();
+
                     break;
                 case 2:
                     System.out.println("Has seleccionado la opcion 2 camiseta");

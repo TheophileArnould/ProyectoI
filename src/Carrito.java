@@ -26,7 +26,7 @@ public class Carrito {
         } else {
             System.out.println("Contenido del carrito:");
             for (Ropa r : carritoContent) {
-                System.out.println("- " + r.getNombre() + " - Precio: " + r.getPrecio());
+                System.out.println("- " + r.getClass() + " - Precio: " + r.getPrecio());
             }
         }
     }
@@ -41,24 +41,27 @@ public class Carrito {
     }
 
     // Método para agregar un elemento del mercado al carrito
+    /*
     public void agregarAlCarritoDesdeMercado(App app, int indice) {
         if (indice >= 0 && indice < app.ropaDisponible.size()) {
             Ropa ropaSeleccionada = app.ropaDisponible.get(indice);
             addToCarrito(ropaSeleccionada);
-            System.out.println("Has agregado " + ropaSeleccionada.getNombre() + " al carrito.");
+            System.out.println("Has agregado " + ropaSeleccionada.getClass() + " al carrito.");
+        } else {
+            System.out.println("Índice no válido.");
+        }
+    }
+    */
+    // Método para eliminar un elemento del carrito basado en su índice en el carrito
+    public void eliminarDelCarrito(int indice) {
+        if (indice >= 0 && indice < carritoContent.size()) {
+            Ropa ropaEliminada = carritoContent.remove(indice);
+            System.out.println("Has eliminado " + ropaEliminada.getClass() + " del carrito.");
         } else {
             System.out.println("Índice no válido.");
         }
     }
 
-    // Método para eliminar un elemento del carrito basado en su índice en el carrito
-    public void eliminarDelCarrito(int indice) {
-        if (indice >= 0 && indice < carritoContent.size()) {
-            Ropa ropaEliminada = carritoContent.remove(indice);
-            System.out.println("Has eliminado " + ropaEliminada.getNombre() + " del carrito.");
-        } else {
-            System.out.println("Índice no válido.");
-        }
-    }
+
 }
 
