@@ -1,15 +1,84 @@
-import items.Camisa;
-import items.Camiseta;
-import items.Ropa;
-import items.Vestido;
+package Mercado;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import Mercado.Graphics.JeanView;
+import Mercado.Graphics.MainMercado;
+
+import javax.swing.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class App { // Create user interface
 
+    public static MainMercado mm = new MainMercado();
+    public static JeanView jm = new JeanView();
+
+    Carrito carrito = new Carrito();
+
+    public void dispMercado() {
+        mm.setContentPane(mm.getPanelMain());
+        mm.setTitle("Hello");
+        mm.setSize(1200,800);
+        mm.setVisible(true);
+        mm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        mm.getCamisa().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                jm.setContentPane(jm.getPanelMain());
+                jm.setTitle("Hello");
+                jm.setSize(1200,800);
+                jm.setVisible(true);
+                jm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                mm.setVisible(false);
+            }
+        });
+        mm.getCamiseta().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+            }
+        });
+        mm.getPantalon().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+            }
+        });
+        mm.getVestido().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+            }
+        });
+
+        jm.getVolverButton().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mm.setVisible(true);
+                jm.setVisible(false);
+            }
+        });
+
+        jm.getAgreagarAlCarritoButton().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                carrito.addToCarrito(jm.CreateRopa());
+                mm.setVisible(true);
+                jm.setVisible(false);
+            }
+        });
+    }
+
+    public static MainMercado getMm() {
+        return mm;
+    }
+
+    public static JeanView getJm() {
+        return jm;
+    }
+
+    /*
     Carrito car = new Carrito();
     private ArrayList<Ropa> ropaDisponible = new ArrayList<>(
             List.of(new Camisa(56.0, 'M', Ropa.exitanteTallaje.M, Ropa.exitanteColor.RED),
@@ -68,4 +137,5 @@ public class App { // Create user interface
     public void pickItem(Ropa r) {
         car.addToCarrito(r);
     }
+    */
 }

@@ -1,4 +1,6 @@
-import items.Ropa;
+package Mercado;
+
+import Mercado.items.Ropa;
 import java.util.ArrayList;
 
 public class Carrito {
@@ -40,28 +42,8 @@ public class Carrito {
         return precio;
     }
 
-    // Método para agregar un elemento del mercado al carrito
-    /*
-    public void agregarAlCarritoDesdeMercado(App app, int indice) {
-        if (indice >= 0 && indice < app.ropaDisponible.size()) {
-            Ropa ropaSeleccionada = app.ropaDisponible.get(indice);
-            addToCarrito(ropaSeleccionada);
-            System.out.println("Has agregado " + ropaSeleccionada.getClass() + " al carrito.");
-        } else {
-            System.out.println("Índice no válido.");
-        }
+    public ArrayList<Ropa> getCarritoContent() {
+        return carritoContent;
     }
-    */
-    // Método para eliminar un elemento del carrito basado en su índice en el carrito
-    public void eliminarDelCarrito(int indice) {
-        if (indice >= 0 && indice < carritoContent.size()) {
-            Ropa ropaEliminada = carritoContent.remove(indice);
-            System.out.println("Has eliminado " + ropaEliminada.getClass() + " del carrito.");
-        } else {
-            System.out.println("Índice no válido.");
-        }
-    }
-
-
 }
 

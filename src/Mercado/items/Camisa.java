@@ -1,9 +1,9 @@
-package items;
+package Mercado.items;
 
 public class Camisa extends Ropa{
     private double tallajeMangas;
 
-    public Camisa(double precio, char sexo, exitanteTallaje tallaje, exitanteColor color) {
+    public Camisa(double precio, exitanteSexo sexo, exitanteTallaje tallaje, exitanteColor color) {
         super(precio, sexo, tallaje, color);
     }
 

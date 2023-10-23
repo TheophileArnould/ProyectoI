@@ -1,9 +1,9 @@
-package items;
+package Mercado.items;
 
 public class Vestido extends Ropa{
     private int largo; // en centimetro
 
-    public Vestido(double precio, char sexo, exitanteTallaje tallaje, exitanteColor color, int largo) {
+    public Vestido(double precio, exitanteSexo sexo, exitanteTallaje tallaje, exitanteColor color, int largo) {
         super(precio, sexo, tallaje, color);
         this.largo = largo;
     }

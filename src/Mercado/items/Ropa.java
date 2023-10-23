@@ -1,11 +1,15 @@
-package items;
+package Mercado.items;
 
 import java.awt.*;
 
 public abstract class Ropa {
     private double precio;
-    private char sexo;
+    private exitanteSexo sexo;
     private exitanteTallaje tallaje;
+
+    public enum exitanteSexo{
+        HUMBRE,MUJER,NO_BINARIO,HELICOPTERO_DE_COMBATO,OTRO
+    }
     public enum exitanteTallaje {
         XS,S,M,L,XL,XLL;
     }
@@ -13,25 +17,19 @@ public abstract class Ropa {
     public enum exitanteColor {
         RED,BLUE,GREEN;
     }
-    private Image image;
 
-    public Ropa(double precio, char sexo, exitanteTallaje tallaje, exitanteColor color) {
+    public Ropa(double precio, exitanteSexo sexo, exitanteTallaje tallaje, exitanteColor color) {
         this.precio = precio;
         this.sexo = sexo;
         this.tallaje = tallaje;
         this.color = color;
-        this.image = image;
-    }
-    public Ropa(double precio, char sexo, exitanteTallaje tallaje, exitanteColor color, Image image) {
-        this(precio,sexo,tallaje,color);
-        this.image = image;
     }
 
     public double getPrecio() {
         return precio;
     }
 
-    public char getSexo() {
+    public exitanteSexo getSexo() {
         return sexo;
     }
 
@@ -43,15 +41,12 @@ public abstract class Ropa {
         return color;
     }
 
-    public Image getImage() {
-        return image;
-    }
 
     public void setPrecio(double precio) {
         this.precio = precio;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(exitanteSexo sexo) {
         this.sexo = sexo;
     }
 
@@ -63,9 +58,6 @@ public abstract class Ropa {
         this.color = color;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
-    }
 
     @Override
     public String toString() {
@@ -74,7 +66,6 @@ public abstract class Ropa {
                 ", sexo=" + sexo +
                 ", tallaje=" + tallaje +
                 ", color=" + color +
-                ", image=" + image +
                 '}';
     }
 }
