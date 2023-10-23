@@ -1,6 +1,7 @@
 package Mercado;
 
 
+import Mercado.Graphics.CarritoView;
 import Mercado.Graphics.JeanView;
 import Mercado.Graphics.MainMercado;
 
@@ -10,10 +11,11 @@ import java.awt.event.MouseEvent;
 
 public class App { // Create user interface
 
-    public static MainMercado mm = new MainMercado();
-    public static JeanView jm = new JeanView();
+    private MainMercado mm = new MainMercado();
+    private JeanView jm = new JeanView();
+    private Carrito carrito = new Carrito();
+    private CarritoView cv = new CarritoView(carrito);
 
-    Carrito carrito = new Carrito();
 
     public void dispMercado() {
         mm.setContentPane(mm.getPanelMain());
@@ -51,6 +53,19 @@ public class App { // Create user interface
                 super.mouseClicked(e);
             }
         });
+        mm.getCarrito().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                cv.setContentPane(cv.getMainPanel());
+                cv.setTitle("Hello");
+                cv.setSize(1200,800);
+                cv.setVisible(true);
+                cv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                mm.setVisible(false);
+            }
+        });
+
+
 
         jm.getVolverButton().addMouseListener(new MouseAdapter() {
             @Override
@@ -59,23 +74,23 @@ public class App { // Create user interface
                 jm.setVisible(false);
             }
         });
+        cv.getVolverButton().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mm.setVisible(true);
+                cv.setVisible(false);
+            }
+        });
 
         jm.getAgreagarAlCarritoButton().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 carrito.addToCarrito(jm.CreateRopa());
+                cv.updateCarrito();
                 mm.setVisible(true);
                 jm.setVisible(false);
             }
         });
-    }
-
-    public static MainMercado getMm() {
-        return mm;
-    }
-
-    public static JeanView getJm() {
-        return jm;
     }
 
     /*

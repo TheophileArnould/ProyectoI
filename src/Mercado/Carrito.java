@@ -17,8 +17,8 @@ public class Carrito {
     }
 
     // Método para eliminar un elemento del carrito
-    public void removeFromCarrito(Ropa r) {
-        carritoContent.remove(r);
+    public void removeFromCarrito(int i) {
+        carritoContent.remove(i);
     }
 
     // Método para mostrar el contenido del carrito
