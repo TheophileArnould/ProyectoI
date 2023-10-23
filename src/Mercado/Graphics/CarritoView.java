@@ -1,6 +1,7 @@
 package Mercado.Graphics;
 
 import Mercado.Carrito;
+import Mercado.items.Jean;
 import Mercado.items.Ropa;
 
 import javax.swing.*;
@@ -63,6 +64,7 @@ public class CarritoView extends JFrame{
         String st="Working hard";
         for(Ropa r : c.getCarritoContent()){
             listModel1.addElement(r.toString());
+
 
         }
 

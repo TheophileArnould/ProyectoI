@@ -72,7 +72,7 @@ public class JeanView extends JFrame{
     }
 
     public Jean CreateRopa(){
-        return new Jean((double) getItemPrice(), Ropa.exitanteSexo.valueOf(SexoComboBox.getSelectedItem().toString()),Ropa.exitanteTallaje.valueOf(TamanoComboBox.getSelectedItem().toString()) ,Ropa.exitanteColor.valueOf(ColorComboBox.getSelectedItem().toString()));
+        return new Jean((double) getItemPrice(), Ropa.exitanteSexo.valueOf(SexoComboBox.getSelectedItem().toString()),Ropa.exitanteTallaje.valueOf(TamanoComboBox.getSelectedItem().toString()) ,Ropa.exitanteColor.valueOf(ColorComboBox.getSelectedItem().toString()),Jean.existanteMaterial.valueOf(MaterialComboBox.getSelectedItem().toString()));
     }
 
 
