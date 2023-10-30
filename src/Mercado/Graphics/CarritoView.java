@@ -45,15 +45,12 @@ public class CarritoView extends JFrame{
         comprarButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
+                carrito.vacillar();
+                updateCarrito();
+                JOptionPane.showMessageDialog(null,"muchas gracias por su compras");
             }
         });
-        volverButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-            }
-        });
+
 
     }
 

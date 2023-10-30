@@ -3,8 +3,9 @@ package Mercado.items;
 public class Camiseta extends Ropa{
     private exitanteEstampados estampados;
 
-    public Camiseta(double precio, exitanteSexo sexo, exitanteTallaje tallaje, exitanteColor color) {
+    public Camiseta(double precio, exitanteSexo sexo, exitanteTallaje tallaje, exitanteColor color,exitanteEstampados estampados) {
         super(precio, sexo, tallaje, color);
+        this.estampados = estampados;
     }
 
     public enum exitanteEstampados {

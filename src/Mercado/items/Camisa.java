@@ -5,7 +5,7 @@ public class Camisa extends Ropa{
 
     public Camisa(double precio, exitanteSexo sexo, exitanteTallaje tallaje, exitanteColor color,double tallajeMangas) {
         super(precio, sexo, tallaje, color);
-        tallajeMangas = tallajeMangas;
+        this.tallajeMangas = tallajeMangas;
     }
 
 

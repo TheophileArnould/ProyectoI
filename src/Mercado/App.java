@@ -1,10 +1,7 @@
 package Mercado;
 
 
-import Mercado.Graphics.CamisaView;
-import Mercado.Graphics.CarritoView;
-import Mercado.Graphics.JeanView;
-import Mercado.Graphics.MainMercado;
+import Mercado.Graphics.*;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -17,6 +14,8 @@ public class App { // Create user interface
     private Carrito carrito = new Carrito();
     private CarritoView carritoView = new CarritoView(carrito);
     private CamisaView camisaView = new CamisaView();
+    private VestidoView vestidoView = new VestidoView();
+    private CamisetaView camisetaView = new CamisetaView();
 
 
     public void dispMercado() {
@@ -51,13 +50,23 @@ public class App { // Create user interface
         mercadoView.getCamiseta().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
+                camisetaView.setContentPane(camisetaView.getPanelMain());
+                camisetaView.setTitle("Hello");
+                camisetaView.setSize(1200,800);
+                camisetaView.setVisible(true);
+                camisetaView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                mercadoView.setVisible(false);
             }
         });
         mercadoView.getVestido().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
+                vestidoView.setContentPane(vestidoView.getPanelMain());
+                vestidoView.setTitle("Hello");
+                vestidoView.setSize(1200,800);
+                vestidoView.setVisible(true);
+                vestidoView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                mercadoView.setVisible(false);
             }
         });
         mercadoView.getCarrito().addMouseListener(new MouseAdapter() {
@@ -81,6 +90,13 @@ public class App { // Create user interface
                 jeanView.setVisible(false);
             }
         });
+        vestidoView.getVolverButton().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mercadoView.setVisible(true);
+                vestidoView.setVisible(false);
+            }
+        });
         carritoView.getVolverButton().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -95,6 +111,13 @@ public class App { // Create user interface
                 camisaView.setVisible(false);
             }
         });
+        camisetaView.getVolverButton().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mercadoView.setVisible(true);
+                camisetaView.setVisible(false);
+            }
+        });
 
         jeanView.getAgreagarAlCarritoButton().addMouseListener(new MouseAdapter() {
             @Override
@@ -105,6 +128,15 @@ public class App { // Create user interface
                 jeanView.setVisible(false);
             }
         });
+        vestidoView.getAgreagarAlCarritoButton().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                carrito.addToCarrito(vestidoView.CreateRopa());
+                carritoView.updateCarrito();
+                mercadoView.setVisible(true);
+                vestidoView.setVisible(false);
+            }
+        });
 
         camisaView.getAgregarAlCarritoButton().addMouseListener(new MouseAdapter() {
             @Override
@@ -113,6 +145,15 @@ public class App { // Create user interface
                 carritoView.updateCarrito();
                 mercadoView.setVisible(true);
                 camisaView.setVisible(false);
+            }
+        });
+        camisetaView.getAgreagarAlCarritoButton().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                carrito.addToCarrito(camisetaView.CreateRopa());
+                carritoView.updateCarrito();
+                mercadoView.setVisible(true);
+                camisetaView.setVisible(false);
             }
         });
     }

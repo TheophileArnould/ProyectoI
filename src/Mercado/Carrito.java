@@ -45,5 +45,9 @@ public class Carrito {
     public ArrayList<Ropa> getCarritoContent() {
         return carritoContent;
     }
+
+    public void vacillar() {
+        this.carritoContent.clear();
+    }
 }
 
