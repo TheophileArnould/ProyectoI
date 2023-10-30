@@ -27,9 +27,10 @@
           <doubleBuffered value="false"/>
           <enabled value="false"/>
           <focusable value="false"/>
+          <foreground color="-16777216"/>
           <inheritsPopupMenu value="false"/>
         </properties>
-        <border type="none" title="camisa"/>
+        <border type="none" title="Camisa"/>
         <children/>
       </grid>
       <grid id="deeb8" binding="camiseta" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -41,7 +42,7 @@
           <autoscrolls value="false"/>
           <background color="-12511429"/>
         </properties>
-        <border type="none" title="camiseta"/>
+        <border type="none" title="Camiseta"/>
         <children/>
       </grid>
       <grid id="9e7f7" binding="pantalon" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -53,7 +54,7 @@
           <autoscrolls value="true"/>
           <background color="-15787199"/>
         </properties>
-        <border type="none" title="jean"/>
+        <border type="none" title="Jean"/>
         <children/>
       </grid>
       <grid id="279a4" binding="vestido" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -64,7 +65,7 @@
         <properties>
           <background color="-16498432"/>
         </properties>
-        <border type="none" title="vestido"/>
+        <border type="none" title="Vestido"/>
         <children/>
       </grid>
       <grid id="fe1fd" binding="carrito" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -75,7 +76,7 @@
         <properties>
           <background color="-9238784"/>
         </properties>
-        <border type="none" title="carrito"/>
+        <border type="none" title="Carrito"/>
         <children/>
       </grid>
       <grid id="77dd" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

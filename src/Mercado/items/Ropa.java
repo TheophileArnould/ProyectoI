@@ -8,7 +8,7 @@ public abstract class Ropa {
     private exitanteTallaje tallaje;
 
     public enum exitanteSexo{
-        HUMBRE,MUJER,NO_BINARIO,HELICOPTERO_DE_COMBATO,OTRO
+        HOMBRE,MUJER,NO_BINARIO,HELICOPTERO_DE_COMBATO,OTRO
     }
     public enum exitanteTallaje {
         XS,S,M,L,XL,XLL;
