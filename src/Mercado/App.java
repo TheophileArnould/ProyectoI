@@ -1,6 +1,7 @@
 package Mercado;
 
 
+import Mercado.Graphics.CamisaView;
 import Mercado.Graphics.CarritoView;
 import Mercado.Graphics.JeanView;
 import Mercado.Graphics.MainMercado;
@@ -11,146 +12,110 @@ import java.awt.event.MouseEvent;
 
 public class App { // Create user interface
 
-    private MainMercado mm = new MainMercado();
-    private JeanView jm = new JeanView();
+    private MainMercado mercadoView = new MainMercado();
+    private JeanView jeanView = new JeanView();
     private Carrito carrito = new Carrito();
-    private CarritoView cv = new CarritoView(carrito);
+    private CarritoView carritoView = new CarritoView(carrito);
+    private CamisaView camisaView = new CamisaView();
 
 
     public void dispMercado() {
-        mm.setContentPane(mm.getPanelMain());
-        mm.setTitle("Hello");
-        mm.setSize(1200,800);
-        mm.setVisible(true);
-        mm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mercadoView.setContentPane(mercadoView.getPanelMain());
+        mercadoView.setTitle("Hello");
+        mercadoView.setSize(1200,800);
+        mercadoView.setVisible(true);
+        mercadoView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        mm.getCamisa().addMouseListener(new MouseAdapter() {
+        mercadoView.getPantalon().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                jm.setContentPane(jm.getPanelMain());
-                jm.setTitle("Hello");
-                jm.setSize(1200,800);
-                jm.setVisible(true);
-                jm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                mm.setVisible(false);
+                jeanView.setContentPane(jeanView.getPanelMain());
+                jeanView.setTitle("Hello");
+                jeanView.setSize(1200,800);
+                jeanView.setVisible(true);
+                jeanView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                mercadoView.setVisible(false);
             }
         });
-        mm.getCamiseta().addMouseListener(new MouseAdapter() {
+        mercadoView.getCamisa().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                camisaView.setContentPane(camisaView.getPanelMain());
+                camisaView.setTitle("Hello");
+                camisaView.setSize(1200,800);
+                camisaView.setVisible(true);
+                camisaView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                mercadoView.setVisible(false);
+            }
+        });
+        mercadoView.getCamiseta().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
             }
         });
-        mm.getPantalon().addMouseListener(new MouseAdapter() {
+        mercadoView.getVestido().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
             }
         });
-        mm.getVestido().addMouseListener(new MouseAdapter() {
+        mercadoView.getCarrito().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-            }
-        });
-        mm.getCarrito().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                cv.setContentPane(cv.getMainPanel());
-                cv.setTitle("Hello");
-                cv.setSize(1200,800);
-                cv.setVisible(true);
-                cv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                mm.setVisible(false);
+                carritoView.setContentPane(carritoView.getMainPanel());
+                carritoView.setTitle("Hello");
+                carritoView.setSize(1200,800);
+                carritoView.setVisible(true);
+                carritoView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                mercadoView.setVisible(false);
             }
         });
 
 
 
-        jm.getVolverButton().addMouseListener(new MouseAdapter() {
+        jeanView.getVolverButton().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                mm.setVisible(true);
-                jm.setVisible(false);
+                mercadoView.setVisible(true);
+                jeanView.setVisible(false);
             }
         });
-        cv.getVolverButton().addMouseListener(new MouseAdapter() {
+        carritoView.getVolverButton().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                mm.setVisible(true);
-                cv.setVisible(false);
+                mercadoView.setVisible(true);
+                carritoView.setVisible(false);
+            }
+        });
+        camisaView.getVolverButton().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mercadoView.setVisible(true);
+                camisaView.setVisible(false);
             }
         });
 
-        jm.getAgreagarAlCarritoButton().addMouseListener(new MouseAdapter() {
+        jeanView.getAgreagarAlCarritoButton().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                carrito.addToCarrito(jm.CreateRopa());
-                cv.updateCarrito();
-                mm.setVisible(true);
-                jm.setVisible(false);
+                carrito.addToCarrito(jeanView.CreateRopa());
+                carritoView.updateCarrito();
+                mercadoView.setVisible(true);
+                jeanView.setVisible(false);
+            }
+        });
+
+        camisaView.getAgregarAlCarritoButton().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                carrito.addToCarrito(camisaView.CreateRopa());
+                carritoView.updateCarrito();
+                mercadoView.setVisible(true);
+                camisaView.setVisible(false);
             }
         });
     }
 
-    /*
-    Carrito car = new Carrito();
-    private ArrayList<Ropa> ropaDisponible = new ArrayList<>(
-            List.of(new Camisa(56.0, 'M', Ropa.exitanteTallaje.M, Ropa.exitanteColor.RED),
-                    new Camiseta(20.0, 'M', Ropa.exitanteTallaje.XL, Ropa.exitanteColor.GREEN),
-                    new Vestido(56.0, 'M', Ropa.exitanteTallaje.M, Ropa.exitanteColor.RED, 10))); // , ImageIO.read(new
-                                                                                                  // File("images/camisa.jpg"))
 
-    public void dispMercado() {
-        Scanner sn = new Scanner(System.in);
-        boolean salir = false;
-        int opcion; // Guardaremos la opcion del usuario
-        System.out.println("que quieres comprar ? :");
-        while (!salir) {
-
-            System.out.println("1. Opcion 1 camisa");
-            System.out.println("2. Opcion 2 camiseta");
-            System.out.println("3. Opcion 3 vestido");
-            System.out.println("4. Salir");
-
-            System.out.println("Escribe una de las opciones");
-            opcion = sn.nextInt();
-
-            switch (opcion) {
-                case 1:
-                    System.out.println("Has seleccionado la opcion 1 camisa");
-                    System.out.println("Ingressa la talleja");
-
-                    for(Ropa.exitanteTallaje tallaje : Ropa.exitanteTallaje.values()){
-                        System.out.println(tallaje);
-                    }
-                    opcion = sn.nextInt();
-
-                    for (Ropa.exitanteColor color: Ropa.exitanteColor.values()) {
-                        System.out.println(color);
-                    }
-                    opcion = sn.nextInt();
-
-                    break;
-                case 2:
-                    System.out.println("Has seleccionado la opcion 2 camiseta");
-                    System.out.println("Camiseta: Precio: 20.0 Talla: XL Color: GREEN ");
-                    break;
-                case 3:
-                    System.out.println("Has seleccionado la opcion 3 vastido");
-                    System.out.println("Vestido: Precio: 56.0 Talla: M Color: RED ");
-                    break;
-                case 4:
-                    salir = true;
-                    break;
-                default:
-                    System.out.println("Solo números entre 1 y 4");
-            }
-        }
-    }
-
-    public void pickItem(Ropa r) {
-        car.addToCarrito(r);
-    }
-    */
 }
